@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scribbler Documentation - a code documentation page template for codrops</title>
+  <link rel="icon" href="./assets/sloth.jpg" type="image/jpg">
+  <title>Flash - A test service to mock slow server responses</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="./styles/scribbler-global.css">
@@ -24,7 +25,7 @@
         <span></span>
       </div>
       <li class="menu__item">
-        <a href="" class="link link--dark">
+        <a href="https://github.com/siwalikm/FLASH" rel="noreferrer" class="link link--dark">
           <i class="fa fa-github"></i> Github</a>
       </li>
       <li class="menu__item">
@@ -36,95 +37,94 @@
   <div class="wrapper">
     <aside class="doc__nav">
       <ul>
-        <li class="js-btn selected">Get Started</li>
-        <li class="js-btn">Configuration</li>
-        <li class="js-btn">Keybindings</li>
-        <li class="js-btn">Issues</li>
+        <li class="js-btn selected">Configuration</li>
       </ul>
     </aside>
     <article class="doc__content">
-      <section class="js-section">
-        <h3 class="section__title">Get Started</h3>
-        <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving
-          folder location.</p>
-        <h3 class="section__title">Installation</h3>
-        <div class="code__block code__block--notabs">
-          <pre class="code code--block">
-              <code>
-                $ scribbler  ——config
-                  {
-                    “encryption”: true, 
-                    “highlighting“: true,
-                    “prettyTable”: false,
-                    “font”: [“Helvetica”, “sans-serif”],
-                    “folder”: “~/Desktop“
-                  }
-              </code>
-            </pre>
-        </div>
-      </section>
+
       <section class="js-section">
         <h3 class="section__title">Configuration</h3>
-        <p>Learn how to configure settings for Scribbler, such as your syntax highlighting preference and the default saving
-          folder location.</p>
-        <table id="customers">
-          <tr>
-            <th>Options</th>
-            <th>Value</th>
-            <th>Default</th>
-          </tr>
-          <tr>
-            <td>encryption</td>
-            <td>encrypt all notes before saving. If turned on, it requires password to open the file.</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>highlighting</td>
-            <td>Show syntax highlight on markdown text.</td>
-            <td>true</td>
-          </tr>
-          <tr>
-            <td>prettyTable</td>
-            <td>Render table with Scribbler’s pretty table style.</td>
-            <td>true</td>
-          </tr>
-        </table>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque.
-          Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert
-          oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
+        <p>Flash is very simple to use and right now allows using into two modes,
+          <br>
+          <span class="code code--inline">configurable delay</span> and
+          <span class="code code--inline">configurable delay and URL</span>
+        </p>
+        <br>
+        <div class="table__container">
+          <span class="table__container--description">
+            <h4 class="link--dark">Configurable Delay</h4>
+            If only delay parameter is passed on, Flash responds with a sample JSON response after the delay time period has elapsed.
+            You can pass a time duration (in milliseconds) or pass 'random' for a random delay.
+          </span>
+          <table class="table__container--table">
+            <tr>
+              <th>Allowed Delay Params</th>
+              <th>Sample URL</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td>time in millisecs</td>
+              <td>
+                <span class="hostUrl"></span>/delay/4000
+              </td>
+              <td>any integer value in millisecs</td>
+            </tr>
+            <tr>
+              <td>random</td>
+              <td>
+                <span class="hostUrl"></span>/delay/random
+              </td>
+              <td>'random' (return random time between 0 and 1000ms)</td>
+            </tr>
+          </table>
+
+        </div>
+
+        <div class="table__container">
+          <span class="table__container--description">
+            <h4 class="link--dark">Configurable Delay and URL</h4>
+            You can get a delayed response from a specific API endpoint by passing an URL parameter to Flash. Along with the URL, you
+            can still pass on a delay parameter with either of the configurations metioned above.
+          </span>
+          <table class="table__container--table">
+            <tr>
+              <th>Allowed URL Params</th>
+              <th>Sample URL</th>
+              <th>Value</th>
+            </tr>
+            <tr>
+              <td>domain name</td>
+              <td>
+                <span class="hostUrl"></span>/delay/4000/url/google.com
+              </td>
+              <td>any valid domain name, by default http is appended while redirecting</td>
+            </tr>
+            <tr>
+              <td>URL</td>
+              <td>
+                <span class="hostUrl"></span>/delay/4000/url/https://www.google.com
+              </td>
+              <td>any valid domain name prepended by http:// or https://)</td>
+            </tr>
+          </table>
+
+        </div>
+
         <hr />
-      </section>
-      <section class="js-section">
-        <h3 class="section__title">Keybindings</h3>
-        <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At eam movet
-          verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat, ut vel homero
-          accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne usu tation vituperata.</p>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque.
-          Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert
-          oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque.
-          Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert
-          oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-        <hr />
-      </section>
-      <section class="js-section">
-        <h3 class="section__title">Issues</h3>
-        <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At eam movet
-          verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat, ut vel homero
-          accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne usu tation vituperata.</p>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque.
-          Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert
-          oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-      </section>
+
+        <!-- <h3 class="section__title">Shoutout</h3>
+        <p>Shoutout shoutout</p> -->
     </article>
   </div>
 
-  <footer class="footer">Scribbler is a free HTML template created exclusively for
-    <a href="https://tympanus.net/codrops/?p=33686" target="_blank" class="link link--light">Codrops</a>.</footer>
+
+  <footer class="footer">Rate / Hate / Shoutout on Twitter
+    <a rel="noreferrer" href="https://twitter.com/siwalik/" target="_blank" class="link link--light">@siwalik</a>.</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="./js/scribbler.js"></script>
 </body>
 

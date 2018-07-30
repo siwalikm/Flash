@@ -182,7 +182,7 @@ hr {
 }
 
 .link--light {
-  color: var(--accent-color);
+  color: var(--accent-color-light);
 }
 
 /* menu */
@@ -270,7 +270,6 @@ table th {
 }
 
 table th {
-  text-align: left;
   background-color: white;
   border-color: white;
   border-bottom-color: var(--code-bg-color);
