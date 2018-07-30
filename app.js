@@ -62,9 +62,8 @@ app.get('/delay/:delayValue/url/:urlValue*', (req, res) => {
 app.get('*', function (req, res) {
   res.redirect('/');
 });
-
-
-app.listen(3000, () => console.log(`Flash listening on port 3000!`));
+var port = process.env.port || 3000;
+app.listen(port, () => console.log(`Flash listening on port ${port}!`));
 
 function randomDelayInMS() {
   // random delay in milliseconds between 0 to 10000 ms
