@@ -1,0 +1,15 @@
+{
+  "name": "flash",
+  "version": "1.0.0",
+  "description": "A tiny app to simulate slow network calls with configurable delay and url parameters.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
