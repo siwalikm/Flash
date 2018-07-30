@@ -2,6 +2,18 @@
 <html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114842192-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-114842192-2');
+  </script>
+
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +45,10 @@
     </ul>
   </nav>
   <div class="hero">
-    <img class="hero__image" src="./assets/flash.gif">
+    <video class="hero__image" autoplay loop="loop" muted>
+      <source src="./assets/flash.mp4" type="video/mp4" />
+      <img src="video.gif" width="400" height="300" />
+    </video>
     <h1 class="hero__title">FLASH</h1>
     <p class="hero__description">A test service to mock slow server responses</p>
   </div>
