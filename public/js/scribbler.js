@@ -40,6 +40,7 @@ jQuery(document).ready(() => {
             </span>
           </div>
         </div> `;
+                    jQuery('.changelog').show();
                     jQuery('.changelog .items').append(domItem);
                 });
             } else {
@@ -56,7 +57,7 @@ if (document.getElementsByClassName('demo').length > 0) {
     var speed = 60;
     setTimeout(typeItOut, 1800);
     var txt = `// GET() mock response after specific delay
-  > $.get(${window.hostUrl}/delay/3000', data=> {console.log(data)});
+  > $.get('${window.hostUrl}/delay/3000', data=> {console.log(data)});
 
   // api response
   > {status: 200, delay: "3000 ms", message: "Mock response from Flash"}

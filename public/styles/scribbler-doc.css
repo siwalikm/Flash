@@ -4,6 +4,16 @@ html, body {
   min-height: 100vh;
 }
 
+.donate {
+  color: #E91E63;
+  font-weight: 500;
+  transition: .5s ease;
+}
+
+.donate:hover {
+  text-decoration: underline;
+}
+
 /* layout */
 .header {
   border-bottom: 1px solid var(--code-bg-color);
