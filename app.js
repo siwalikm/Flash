@@ -20,6 +20,16 @@ function randomDelayInMS() {
     return (Math.floor(Math.random() * 10) + 0) * 1000;
 }
 
+function timerFunctionForDelay(res, delay) {
+    setTimeout(() => {
+        res.send({
+            status: 200,
+            delay: `${delay} ms`,
+            message: 'Mock response from Flash'
+        });
+    }, delay);
+}
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
@@ -31,15 +41,9 @@ app.get('/doc', (req, res) => {
 app.get('/delay/:delayValue/', (req, res) => {
 
     if (req.params.delayValue === 'random') {
-        req.params.delayValue = randomDelayInMS();
+        (timerFunctionForDelay(res, randomDelayInMS()));
     } else if (!isNaN(req.params.delayValue)) {
-        setTimeout(() => {
-            res.send({
-                status: 200,
-                delay: `${req.params.delayValue} ms`,
-                message: 'Mock response from Flash'
-            });
-        }, req.params.delayValue);
+        (timerFunctionForDelay(res, req.params.delayValue));
     } else {
         res.status(500).send('Delay value should be valid number(in milliseconds) or "random"');
     }
@@ -69,5 +73,9 @@ app.get('*', function (req, res) {
     res.redirect('/');
 });
 app.set('port', process.env.PORT || 3000);
-// eslint-disable-next-line
-app.listen(app.get('port'), () => console.log('Flash listening on port ' + app.get('port')));
+let server = app.listen(app.get('port'), () => {
+    // eslint-disable-next-line
+    console.log('Flash ⚡⚡⚡ is listening to port ' + app.get('port'));
+});
+
+module.exports = server;
