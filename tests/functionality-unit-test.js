@@ -21,6 +21,7 @@ describe('Unit tests | Flash', function () {
                     done();
                 });
         });
+
         it('should repond after 3 sec delay', function testSlash(done) {
             let begin = Date.now();
             chai.request(app)
@@ -32,6 +33,7 @@ describe('Unit tests | Flash', function () {
                     done();
                 });
         });
+
         it('should repond after "random" delay', function testSlash(done) {
             let begin = Date.now();
             chai.request(app)
@@ -44,11 +46,34 @@ describe('Unit tests | Flash', function () {
                     done();
                 });
         });
-        it('should return 500 on wrong delay parameter', function testSlash(done) {
+
+        it('should return 500 error on wrong delay parameter', function testSlash(done) {
             chai.request(app)
                 .get('/delay/helloThere')
                 .then(response => {
                     expect(response.status).equal(500);
+                    done();
+                });
+        });
+    });
+
+    describe('Check URL mode', function () {
+        it('should redirect to valid domain without protocol', function testSlash(done) {
+            chai.request(app)
+                .get('/delay/0/url/api.github.com')
+                .then((response) => {
+                    expect(response.redirects.length).greaterThan(0);
+                    expect(response.text).contain('github');
+                    done();
+                });
+        });
+
+        it('should redirect to valid domain with https protocol', function testSlash(done) {
+            chai.request(app)
+                .get('/delay/0/url/https://api.github.com')
+                .then((response) => {
+                    expect(response.redirects.length).greaterThan(0);
+                    expect(response.text).contain('github');
                     done();
                 });
         });

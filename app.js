@@ -20,13 +20,14 @@ function randomDelayInMS() {
     return (Math.floor(Math.random() * 10) + 0) * 1000;
 }
 
-function timerFunctionForDelay(res, delay) {
+function timerFunction(res, data, type, delay) {
     setTimeout(() => {
-        res.send({
-            status: 200,
-            delay: `${delay} ms`,
-            message: 'Mock response from Flash'
-        });
+        if (type === 'typeDelay') {
+            data.delay = `${delay} ms`;
+            res.send(data);
+        } else if (type === 'typeUrl') {
+            res.status(302).redirect(data);
+        }
     }, delay);
 }
 
@@ -39,11 +40,15 @@ app.get('/doc', (req, res) => {
 
 
 app.get('/delay/:delayValue/', (req, res) => {
+    const data = {
+        status: 200,
+        message: 'Mock response from Flash'
+    };
 
     if (req.params.delayValue === 'random') {
-        (timerFunctionForDelay(res, randomDelayInMS()));
+        (timerFunction(res, data, 'typeDelay', randomDelayInMS()));
     } else if (!isNaN(req.params.delayValue)) {
-        (timerFunctionForDelay(res, req.params.delayValue));
+        (timerFunction(res, data, 'typeDelay', req.params.delayValue));
     } else {
         res.status(500).send('Delay value should be valid number(in milliseconds) or "random"');
     }
@@ -52,17 +57,14 @@ app.get('/delay/:delayValue/', (req, res) => {
 
 app.get('/delay/:delayValue/url/:urlValue*', (req, res) => {
     var url = `${req.params.urlValue}${req.params[0]}`;
+    if (!url.match('(http|https)://') && !url.match('://')) {
+        url = `http://${url}`;
+    }
 
     if (req.params.delayValue === 'random') {
-        req.params.delayValue = randomDelayInMS();
+        (timerFunction(res, url, 'typeUrl', randomDelayInMS()));
     } else if (!isNaN(req.params.delayValue)) {
-        setTimeout(() => {
-
-            if (!url.match('(http|https)://') && !url.match('://')) {
-                url = `http://${url}`;
-            }
-            res.redirect(url);
-        }, req.params.delayValue);
+        (timerFunction(res, url, 'typeUrl', req.params.delayValue));
     } else {
         res.status(500).send('Delay value should be valid number(in milliseconds) or "random"');
     }

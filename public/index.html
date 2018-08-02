@@ -19,12 +19,30 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="./assets/sloth.jpg" type="image/jpg">
+  <meta name="author" content="siwalik">
+  <meta name="description" content="Make a request to Flash to simulate a slow response, configurable delay in millisecs. Test how your application responds to a slow request from external service or API.">
+  <meta name="keywords" content="slow api, test slow api, mock slow api, api latency test">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#3f51b5">
   <title>Flash - A test service to mock slow server responses</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-  <link rel="stylesheet" href="./styles/scribbler-global.css">
-  <link rel="stylesheet" href="./styles/scribbler-landing.css">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@siwalik">
+  <meta name="twitter:title" content="Flash - A test service to mock slow server responses">
+  <meta name="twitter:description" content="Make a request to Flash to simulate a slow response, configurable delay in millisecs. Test how your application responds to a slow request from external service or API.">
+  <meta name="twitter:creator" content="@siwalik">
+  <meta name="twitter:image" content="https://i.imgur.com/UsPqQnr.png">
+  
+  <meta property="og:title" content="Flash - A test service to mock slow server responses">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://flash.siwalik.in">
+  <meta property="og:image" content="https://i.imgur.com/UsPqQnr.png">
+  <meta property="og:description" content="Make a request to Flash to simulate a slow response, configurable delay in millisecs. Test how your application responds to a slow request from external service or API.">
+  <meta property="og:site_name" content="Flash - A test service to mock slow server responses">
+  <link media="screen" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+  <link media="screen" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link media="screen" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+  <link media="screen" rel="stylesheet" href="./styles/scribbler-global.css">
+  <link media="screen" rel="stylesheet" href="./styles/scribbler-landing.css">
   <link rel="author" href="humans.txt">
 </head>
 
@@ -46,15 +64,16 @@
     </ul>
   </nav>
   <div class="hero">
-    <video preload="auto" class="hero__image" autoplay loop="loop" muted>
+    <video class="hero__image vid" preload="auto" autoplay loop="loop" muted>
       <source src="./assets/flash.mp4" type="video/mp4" />
-      <img src="video.gif" width="400" height="300" />
     </video>
+    <img class="hero__image gif" hidden alt="mascot-image" src="./assets/flash.gif"/>
+
     <h1 class="hero__title">FLASH</h1>
     <p class="hero__description">A test service to mock slow server responses</p>
   </div>
   <div class="hero__terminal">
-    <img src="./assets/chrome.svg" style="
+    <img alt="sample-code-frame" src="./assets/chrome.svg" style="
     width: 100%; border-radius: 5px;
 ">
     <pre>
