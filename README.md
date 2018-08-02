@@ -2,8 +2,7 @@
 <img src="https://github.com/siwalikm/Flash/blob/master/public/assets/flash.png?raw=true" width="150" title="flash logo">
 
 
-# Flash 
-[![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
+# Flash [(flash.siwalik.in)](https://flash.siwalik.in)  [![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
 ## A test service to mock slow server responses. 
 
 
@@ -13,7 +12,6 @@
 This can come handy while testing how your  application responds to a slow external service or API.
 
 Right now **Flash** supports only `GET` requests with configurable delay and URL parameters. 
-> Checkout the app at [https://flash.siwalik.in](https://flash.siwalik.inl).
 
 Using **Flash** is really easy. 
 eg. On visiting https://flash.siwalik.in/delay/5000/url/api.github.com
