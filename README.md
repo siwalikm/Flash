@@ -1,6 +1,6 @@
 <img src="https://github.com/siwalikm/FLASH/blob/master/public/assets/flash.gif?raw=true" width="200" title="hover text">
 
-## Flash [![Build Status](https://travis-ci.org/siwalikm/FLASH.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
+## Flash [![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
 
 #### A test service to mock slow server responses.
 
