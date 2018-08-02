@@ -2,7 +2,7 @@
 <img src="https://github.com/siwalikm/Flash/blob/master/public/assets/flash.png?raw=true" width="150" title="flash logo">
 
 
-# Flash [(flash.siwalik.in)](https://flash.siwalik.in)  [![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
+# Flash [(flash.siwalik.in)](https://flash.siwalik.in)  [![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/Flash)
 ## A test service to mock slow server responses. 
 
 
