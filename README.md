@@ -1,59 +1,57 @@
-<img src="https://github.com/siwalikm/FLASH/blob/master/public/assets/flash.gif?raw=true" width="200" title="hover text">
 
-## Flash [![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
+<img src="https://github.com/siwalikm/Flash/blob/master/public/assets/flash.png?raw=true" width="150" title="flash logo">
 
-#### A test service to mock slow server responses.
+
+# Flash 
+[![Build Status](https://travis-ci.org/siwalikm/Flash.svg?branch=master)](https://travis-ci.org/siwalikm/FLASH)
+## A test service to mock slow server responses. 
 
 
 ### Description
 
-A test service to mock a slow api response - simply append the Flash app URL with delay configuration to your usual API URL and make a request, the response will be delayed.
+**Flash** lets you simulate a slow server response, when you make a request.
+This can come handy while testing how your  application responds to a slow external service or API.
 
-This can be used to simulate timeouts so that you can see how your application responds with slow API requests or if it fails where you expect it to fail.
+Right now **Flash** supports only `GET` requests with configurable delay and URL parameters. 
+> Checkout the app at [https://flash.siwalik.in](https://flash.siwalik.inl).
 
-Right now **Flash** supports only `GET` requests with configurable delay and URL parameters.
-
-
-#### Try it out
-
-At http://flash-the-slow-api.herokuapp.com/](http://flash-the-slow-api.herokuapp.com/)
-or go ahead and use it or run locally (steps below).
-
-#### This project aims to
-
-* Provide delayed response for `GET` requests
-* Not intefere too much with calling code making the request. We don't want users to have to modify request params to use this, editing code just to test something is a pain - the delay parameter and the URL should be the minimum required change to use this.
-* Return redirect after delay; It is useful to actually see how you code works with the real response returned after a delay. Note: obviously requires clients to follow redirects ;)
+Using **Flash** is really easy. 
+eg. On visiting https://flash.siwalik.in/delay/5000/url/api.github.com
+You'll be redirected to api.github.com's response after a 5000ms delay.
 
 
-#### Request
+### Request Structures
 
-Build a URL with the following params:
-
+##### Delay Mode
 ```bash
 https://flash-the-slow-api.herokuapp.com/delay/{delay_time}
 ```
+##### Delay and URL Mode
 ```bash
 https://flash-the-slow-api.herokuapp.com/delay/{delay_time}/url/{url}
 ```
 
-### Read More on the [documentation website](https://flash-the-slow-api.herokuapp.com/doc.html)
+Learn more on usage here - [documentation link](https://flash.siwalik.in/doc.html).
 
 
-### Getting started
+### Dev Setup
 
-It's a simple Rack app so you can run it anywhere;
-
+##### Running the app
 ```bash
-$ git clone git@github.com:siwalikm/FLASH.git
-$ cd FLASH
+$ git clone git@github.com:siwalikm/Flash.git
+$ cd Flash
 $ npm install
 $ npm start
 ```
+##### Running tests
+```bash
+$ npm test
+```
+If you're using vs-code for development, I've already included the `launch.json` scripts for running app and test server in debug mode.
 
 ### Contributions
 
-Please use the GitHub pull-request mechanism to submit contributions.
+For contributing, please raise a pull request with your code and test. You can also contribute by reporting issues and adding feature requests.
 
 
 ### License
