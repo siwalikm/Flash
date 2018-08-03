@@ -330,12 +330,6 @@ table td:first-child {
 
 @media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
-  .hero__image.vid {
-    display: none;
-  }
-  .hero__image.gif {
-    display: inline;
-  }
   /* Force table to not be like tables anymore */
   table,
   thead,
@@ -368,10 +362,11 @@ table td:first-child {
     padding-left: 50%;
   }
   td:before {
-    background: #ececec;
+    background: #F8F8FA;
     display: block;
     margin-bottom: 6px;
     padding: 10px;
+    border-left: 2px solid #3f51b5;
     white-space: nowrap;
   }
   /*
