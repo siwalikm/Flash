@@ -2,8 +2,18 @@ var express = require('express');
 
 var app = express();
 var path = require('path');
+var allowedMethods = ['GET', 'POST'];
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+    const method = req.method;
+    if (allowedMethods.includes(method)) {
+        next();
+    } else {
+        res.status(405).send('Only GET and POST methods are allowed');
+    }
+});
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -39,7 +49,7 @@ app.get('/doc', (req, res) => {
 });
 
 
-app.get('/delay/:delayValue/', (req, res) => {
+app.all('/delay/:delayValue/', (req, res) => {
     const data = {
         status: 200,
         message: 'Mock response from Flash'
@@ -55,7 +65,7 @@ app.get('/delay/:delayValue/', (req, res) => {
 
 });
 
-app.get('/delay/:delayValue/url/:urlValue*', (req, res) => {
+app.all('/delay/:delayValue/url/:urlValue*', (req, res) => {
     var url = `${req.params.urlValue}${req.params[0]}`;
     if (!url.match('(http|https)://') && !url.match('://')) {
         url = `http://${url}`;

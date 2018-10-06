@@ -22,6 +22,27 @@ describe('Unit tests | Flash', function () {
                 });
         });
 
+        it('should repond immediately using POST method', function testSlash(done) {
+            let begin = Date.now();
+            chai.request(app)
+                .post('/delay/0')
+                .then(() => {
+                    let end = Date.now();
+                    let responseDelay = Math.floor((end - begin) / 1000);
+                    expect(responseDelay).equal(0);
+                    done();
+                });
+        });
+
+        it('should return 405 status if method is not GET or POST', function testSlash(done) {
+            chai.request(app)
+                .patch('/delay/0')
+                .then((response) => {
+                    expect(response.status).equal(405);
+                    done();
+                });
+        });
+
         it('should repond after 3 sec delay', function testSlash(done) {
             let begin = Date.now();
             chai.request(app)
@@ -38,6 +59,19 @@ describe('Unit tests | Flash', function () {
             let begin = Date.now();
             chai.request(app)
                 .get('/delay/random')
+                .then(response => {
+                    let end = Date.now();
+                    let responseDelay = Math.floor((end - begin) / 1000);
+                    expect(responseDelay).to.be.at.most(10);
+                    expect(response.body.status).equal(200);
+                    done();
+                });
+        });
+
+        it('should repond after "random" delay using POST method', function testSlash(done) {
+            let begin = Date.now();
+            chai.request(app)
+                .post('/delay/random')
                 .then(response => {
                     let end = Date.now();
                     let responseDelay = Math.floor((end - begin) / 1000);
