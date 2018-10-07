@@ -3,6 +3,12 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({
+    extended: true
+})); // support encoded bodies
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
@@ -74,6 +80,13 @@ app.get('/delay/:delayValue/url/:urlValue*', (req, res) => {
 app.get('*', function (req, res) {
     res.redirect('/');
 });
+
+//  SAMPLE EXAMPLE START 
+app.post('/sample', (req, res)=> {
+    res.send(`Response: ${req.body.id}`);
+});
+//  SAMPLE EXAMPLE END
+
 app.set('port', process.env.PORT || 3000);
 let server = app.listen(app.get('port'), () => {
     // eslint-disable-next-line
