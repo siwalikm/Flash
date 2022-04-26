@@ -39,7 +39,7 @@ app.get('/doc', (req, res) => {
 });
 
 
-app.get('/delay/:delayValue/', (req, res) => {
+app.all('/delay/:delayValue/', (req, res) => {
     const data = {
         status: 200,
         message: 'Mock response from Flash'
